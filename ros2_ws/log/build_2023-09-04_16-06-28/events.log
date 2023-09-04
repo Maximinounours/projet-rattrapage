@@ -1,0 +1,68 @@
+[0.000000] (-) TimerEvent: {}
+[0.000143] (-) JobUnselected: {'identifier': 'my_package'}
+[0.000193] (-) JobUnselected: {'identifier': 'py_pubsub'}
+[0.000221] (py_srvcli) JobQueued: {'identifier': 'py_srvcli', 'dependencies': OrderedDict()}
+[0.000249] (py_srvcli) JobStarted: {'identifier': 'py_srvcli'}
+[0.098026] (-) TimerEvent: {}
+[0.198307] (-) TimerEvent: {}
+[0.298611] (-) TimerEvent: {}
+[0.398886] (-) TimerEvent: {}
+[0.499248] (-) TimerEvent: {}
+[0.599605] (-) TimerEvent: {}
+[0.699929] (-) TimerEvent: {}
+[0.800243] (-) TimerEvent: {}
+[0.900558] (-) TimerEvent: {}
+[1.000860] (-) TimerEvent: {}
+[1.101173] (-) TimerEvent: {}
+[1.125320] (py_srvcli) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/py_srvcli', 'build', '--build-base', '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/build', 'install', '--record', '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/install.log', '--single-version-externally-managed'], 'cwd': '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/src/py_srvcli', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'USER': 'maxime.leriche', 'PT8HOME': '/opt/pt', 'XDG_SESSION_TYPE': 'x11', 'GIT_ASKPASS': '/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'XDG_CACHE_HOME': '/run/shm/.cache/maxime.leriche', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/maxime.leriche', 'CHROME_DESKTOP': 'code-url-handler.desktop', 'OLDPWD': '/home/maxime.leriche/Bureau/projet-rattrapage', 'TERM_PROGRAM_VERSION': '1.81.1', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/code/code', 'MANAGERPID': '66503', 'SYSTEMD_EXEC_PID': '66925', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/30333/bus', 'COLORTERM': 'truecolor', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '95422', '_colcon_cd_root': '/opt/ros/humble/', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'maxime.leriche', 'JOURNAL_STREAM': '8:281572', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'maxime.leriche', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '1', 'WINDOWPATH': '2', 'PATH': '/opt/ros/humble/bin:/softwares/bin:/usr/local/cpe/bin:/usr/local/cpe/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin', 'SESSION_MANAGER': 'local/tparlem03.cpe.lan:@/tmp/.ICE-unix/66900,unix/tparlem03.cpe.lan:/tmp/.ICE-unix/66900', 'INVOCATION_ID': '0ca9b2873e0048b8adb9300f0d9e82ab', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/30333', 'GDK_BACKEND': 'x11', 'DISPLAY': ':1', 'LANG': 'fr_FR.UTF-8', 'XDG_CURRENT_DESKTOP': 'Unity', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/30333/gdm/Xauthority', 'VSCODE_GIT_IPC_HANDLE': '/run/user/30333/vscode-git-10f9ed39f1.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/30333/keyring/ssh', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'ORIGINAL_XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'DEBIAN_FRONTEND': 'noninteractive', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'GPG_AGENT_INFO': '/run/user/30333/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '--ms-enable-electron-run-as-node', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/home/maxime.leriche/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/prefix_override:/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1'}, 'shell': False}
+[1.201290] (-) TimerEvent: {}
+[1.301636] (-) TimerEvent: {}
+[1.401959] (-) TimerEvent: {}
+[1.502241] (-) TimerEvent: {}
+[1.508527] (py_srvcli) StdoutLine: {'line': b'running egg_info\n'}
+[1.510203] (py_srvcli) StdoutLine: {'line': b'creating ../../build/py_srvcli/py_srvcli.egg-info\n'}
+[1.511965] (py_srvcli) StdoutLine: {'line': b'writing ../../build/py_srvcli/py_srvcli.egg-info/PKG-INFO\n'}
+[1.518520] (py_srvcli) StdoutLine: {'line': b'writing dependency_links to ../../build/py_srvcli/py_srvcli.egg-info/dependency_links.txt\n'}
+[1.522054] (py_srvcli) StdoutLine: {'line': b'writing entry points to ../../build/py_srvcli/py_srvcli.egg-info/entry_points.txt\n'}
+[1.524927] (py_srvcli) StdoutLine: {'line': b'writing requirements to ../../build/py_srvcli/py_srvcli.egg-info/requires.txt\n'}
+[1.527484] (py_srvcli) StdoutLine: {'line': b'writing top-level names to ../../build/py_srvcli/py_srvcli.egg-info/top_level.txt\n'}
+[1.531142] (py_srvcli) StdoutLine: {'line': b"writing manifest file '../../build/py_srvcli/py_srvcli.egg-info/SOURCES.txt'\n"}
+[1.543114] (py_srvcli) StdoutLine: {'line': b"reading manifest file '../../build/py_srvcli/py_srvcli.egg-info/SOURCES.txt'\n"}
+[1.547038] (py_srvcli) StdoutLine: {'line': b"writing manifest file '../../build/py_srvcli/py_srvcli.egg-info/SOURCES.txt'\n"}
+[1.549034] (py_srvcli) StdoutLine: {'line': b'running build\n'}
+[1.549660] (py_srvcli) StdoutLine: {'line': b'running build_py\n'}
+[1.550575] (py_srvcli) StdoutLine: {'line': b'creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/build\n'}
+[1.551331] (py_srvcli) StdoutLine: {'line': b'creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/build/lib\n'}
+[1.553393] (py_srvcli) StdoutLine: {'line': b'creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/build/lib/py_srvcli\n'}
+[1.556492] (py_srvcli) StdoutLine: {'line': b'copying py_srvcli/service_member_function.py -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/build/lib/py_srvcli\n'}
+[1.560880] (py_srvcli) StdoutLine: {'line': b'copying py_srvcli/__init__.py -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/build/lib/py_srvcli\n'}
+[1.563836] (py_srvcli) StdoutLine: {'line': b'copying py_srvcli/client_member_function.py -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/build/lib/py_srvcli\n'}
+[1.568128] (py_srvcli) StdoutLine: {'line': b'running install\n'}
+[1.568303] (py_srvcli) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[1.569330] (py_srvcli) StderrLine: {'line': b'  warnings.warn(\n'}
+[1.569440] (py_srvcli) StdoutLine: {'line': b'running install_lib\n'}
+[1.573081] (py_srvcli) StdoutLine: {'line': b'creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages/py_srvcli\n'}
+[1.575923] (py_srvcli) StdoutLine: {'line': b'copying /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/build/lib/py_srvcli/service_member_function.py -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages/py_srvcli\n'}
+[1.581653] (py_srvcli) StdoutLine: {'line': b'copying /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/build/lib/py_srvcli/__init__.py -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages/py_srvcli\n'}
+[1.585968] (py_srvcli) StdoutLine: {'line': b'copying /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/build/lib/py_srvcli/client_member_function.py -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages/py_srvcli\n'}
+[1.592857] (py_srvcli) StdoutLine: {'line': b'byte-compiling /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages/py_srvcli/service_member_function.py to service_member_function.cpython-310.pyc\n'}
+[1.601084] (py_srvcli) StdoutLine: {'line': b'byte-compiling /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages/py_srvcli/__init__.py to __init__.cpython-310.pyc\n'}
+[1.602315] (-) TimerEvent: {}
+[1.606458] (py_srvcli) StdoutLine: {'line': b'byte-compiling /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages/py_srvcli/client_member_function.py to client_member_function.cpython-310.pyc\n'}
+[1.612081] (py_srvcli) StdoutLine: {'line': b'running install_data\n'}
+[1.613435] (py_srvcli) StdoutLine: {'line': b'creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/share/ament_index\n'}
+[1.614314] (py_srvcli) StdoutLine: {'line': b'creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/share/ament_index/resource_index\n'}
+[1.616321] (py_srvcli) StdoutLine: {'line': b'creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/share/ament_index/resource_index/packages\n'}
+[1.621982] (py_srvcli) StdoutLine: {'line': b'copying resource/py_srvcli -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/share/ament_index/resource_index/packages\n'}
+[1.626718] (py_srvcli) StdoutLine: {'line': b'copying package.xml -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/share/py_srvcli\n'}
+[1.630203] (py_srvcli) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.634126] (py_srvcli) StdoutLine: {'line': b'Copying ../../build/py_srvcli/py_srvcli.egg-info to /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages/py_srvcli-0.0.0-py3.10.egg-info\n'}
+[1.679090] (py_srvcli) StdoutLine: {'line': b'running install_scripts\n'}
+[1.702420] (-) TimerEvent: {}
+[1.706075] (py_srvcli) StdoutLine: {'line': b'Installing client script to /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/py_srvcli\n'}
+[1.712206] (py_srvcli) StdoutLine: {'line': b'Installing service script to /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/py_srvcli\n'}
+[1.717203] (py_srvcli) StdoutLine: {'line': b"writing list of installed files to '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/install.log'\n"}
+[1.754868] (py_srvcli) CommandEnded: {'returncode': 0}
+[1.802635] (-) TimerEvent: {}
+[1.854143] (py_srvcli) JobEnded: {'identifier': 'py_srvcli', 'rc': 0}
+[1.857504] (-) EventReactorShutdown: {}

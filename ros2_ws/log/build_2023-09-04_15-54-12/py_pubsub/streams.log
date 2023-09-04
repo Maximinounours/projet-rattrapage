@@ -1,0 +1,43 @@
+[1.183s] Invoking command in '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/src/py_pubsub': PYTHONPATH=/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/prefix_override:/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_pubsub build --build-base /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/build install --record /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/install.log --single-version-externally-managed
+[1.549s] running egg_info
+[1.552s] creating ../../build/py_pubsub/py_pubsub.egg-info
+[1.553s] writing ../../build/py_pubsub/py_pubsub.egg-info/PKG-INFO
+[1.559s] writing dependency_links to ../../build/py_pubsub/py_pubsub.egg-info/dependency_links.txt
+[1.563s] writing entry points to ../../build/py_pubsub/py_pubsub.egg-info/entry_points.txt
+[1.566s] writing requirements to ../../build/py_pubsub/py_pubsub.egg-info/requires.txt
+[1.568s] writing top-level names to ../../build/py_pubsub/py_pubsub.egg-info/top_level.txt
+[1.572s] writing manifest file '../../build/py_pubsub/py_pubsub.egg-info/SOURCES.txt'
+[1.584s] reading manifest file '../../build/py_pubsub/py_pubsub.egg-info/SOURCES.txt'
+[1.587s] writing manifest file '../../build/py_pubsub/py_pubsub.egg-info/SOURCES.txt'
+[1.590s] running build
+[1.590s] running build_py
+[1.591s] creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/build
+[1.592s] creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/build/lib
+[1.594s] creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/build/lib/py_pubsub
+[1.598s] copying py_pubsub/__init__.py -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/build/lib/py_pubsub
+[1.602s] copying py_pubsub/subscriber_member_function.py -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/build/lib/py_pubsub
+[1.605s] copying py_pubsub/publisher_member_function.py -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/build/lib/py_pubsub
+[1.610s] running install
+[1.610s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.611s]   warnings.warn(
+[1.612s] running install_lib
+[1.614s] creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[1.618s] copying /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/build/lib/py_pubsub/__init__.py -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[1.621s] copying /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/build/lib/py_pubsub/subscriber_member_function.py -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[1.626s] copying /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/build/lib/py_pubsub/publisher_member_function.py -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[1.633s] byte-compiling /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/__init__.py to __init__.cpython-310.pyc
+[1.640s] byte-compiling /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/subscriber_member_function.py to subscriber_member_function.cpython-310.pyc
+[1.647s] byte-compiling /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/publisher_member_function.py to publisher_member_function.cpython-310.pyc
+[1.653s] running install_data
+[1.655s] creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/share/ament_index
+[1.656s] creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/share/ament_index/resource_index
+[1.657s] creating /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/share/ament_index/resource_index/packages
+[1.661s] copying resource/py_pubsub -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/share/ament_index/resource_index/packages
+[1.665s] copying package.xml -> /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/share/py_pubsub
+[1.670s] running install_egg_info
+[1.673s] Copying ../../build/py_pubsub/py_pubsub.egg-info to /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/lib/python3.10/site-packages/py_pubsub-0.0.0-py3.10.egg-info
+[1.725s] running install_scripts
+[1.751s] Installing listener script to /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/lib/py_pubsub
+[1.757s] Installing talker script to /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/lib/py_pubsub
+[1.761s] writing list of installed files to '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/install.log'
+[1.797s] Invoked command in '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/src/py_pubsub' returned '0': PYTHONPATH=/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/prefix_override:/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_pubsub/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_pubsub build --build-base /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/build install --record /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_pubsub/install.log --single-version-externally-managed

@@ -1,0 +1,24 @@
+[1.202s] Invoking command in '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/src/py_srvcli': PYTHONPATH=/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/prefix_override:/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_srvcli build --build-base /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/build install --record /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/install.log --single-version-externally-managed
+[1.586s] running egg_info
+[1.588s] writing ../../build/py_srvcli/py_srvcli.egg-info/PKG-INFO
+[1.592s] writing dependency_links to ../../build/py_srvcli/py_srvcli.egg-info/dependency_links.txt
+[1.594s] writing entry points to ../../build/py_srvcli/py_srvcli.egg-info/entry_points.txt
+[1.597s] writing requirements to ../../build/py_srvcli/py_srvcli.egg-info/requires.txt
+[1.599s] writing top-level names to ../../build/py_srvcli/py_srvcli.egg-info/top_level.txt
+[1.610s] reading manifest file '../../build/py_srvcli/py_srvcli.egg-info/SOURCES.txt'
+[1.614s] writing manifest file '../../build/py_srvcli/py_srvcli.egg-info/SOURCES.txt'
+[1.617s] running build
+[1.617s] running build_py
+[1.622s] running install
+[1.623s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.623s]   warnings.warn(
+[1.623s] running install_lib
+[1.630s] running install_data
+[1.634s] running install_egg_info
+[1.636s] removing '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages/py_srvcli-0.0.0-py3.10.egg-info' (and everything under it)
+[1.646s] Copying ../../build/py_srvcli/py_srvcli.egg-info to /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages/py_srvcli-0.0.0-py3.10.egg-info
+[1.684s] running install_scripts
+[1.711s] Installing client script to /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/py_srvcli
+[1.716s] Installing service script to /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/py_srvcli
+[1.720s] writing list of installed files to '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/install.log'
+[1.757s] Invoked command in '/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/src/py_srvcli' returned '0': PYTHONPATH=/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/prefix_override:/home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/install/py_srvcli/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_srvcli build --build-base /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/build install --record /home/maxime.leriche/Bureau/projet-rattrapage/ros2_ws/build/py_srvcli/install.log --single-version-externally-managed
