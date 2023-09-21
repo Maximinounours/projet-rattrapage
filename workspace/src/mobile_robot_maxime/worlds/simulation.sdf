@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+
+    <!-- WORLD -->
+    <world name="simple_world">
+
+        <!-- PHYSICS -->
+        <physics name="1ms" type="ignored">
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1.0</real_time_factor>
+        </physics>
+
+        <!-- PLUGINS -->
+        <plugin filename="libignition-gazebo-physics-system.so" name="ignition::gazebo::systems::Physics">
+        </plugin>
+        <plugin filename="libignition-gazebo-user-commands-system.so" name="ignition::gazebo::systems::UserCommands">
+        </plugin>
+        <plugin filename="libignition-gazebo-scene-broadcaster-system.so" name="ignition::gazebo::systems::SceneBroadcaster">
+        </plugin>
+        <plugin filename="libignition-gazebo-imu-system.so" name="ignition::gazebo::systems::Imu">
+        </plugin>
+
+        <!-- GROUND -->
+        <include>
+            <uri>model://ground</uri>
+        </include>
+
+        <!-- LIGHT -->
+        <include>
+            <uri>model://light</uri>
+        </include>
+
+        <!-- ROBOT -->
+        <include>
+            <pose >0 0 2 0 0 0</pose>
+            <uri>model://robot</uri>
+        </include>
+
+
+    </world>
+</sdf>

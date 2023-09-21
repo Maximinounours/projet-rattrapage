@@ -1,0 +1,177 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+    <model name="mobile_base">
+        <!--Base-->
+        <pose>0 0 1 0 0 0</pose>
+        <self_collide>true</self_collide>
+        <link name="base_mobile">
+            <visual name="visual">
+                <geometry>
+                    <box>
+                        <size>0.5 0.5 0.2</size>
+                    </box>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <box>
+                        <size>0.5 0.5 0.2</size>
+                    </box>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass>50</mass>
+                <inertia>
+                    <ixx>0.145833</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.145833</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.125</izz>
+                </inertia>
+            </inertial>
+            <sensor name="imu_sensor" type="imu">
+                <always_on>1</always_on>
+                <update_rate>1</update_rate>
+                <visualize>true</visualize>
+                <topic>imu</topic>
+            </sensor>
+        </link>
+
+        <!--Left wheel-->
+        <link name='wheel_L'>
+            <pose>-0.1 0.3 0 1.57075 0 0</pose>
+            <inertial>
+                <mass>20</mass>
+                <inertia>
+                    <ixx>0.145833</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.145833</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.125</izz>
+                </inertia>
+            </inertial>
+            <visual name='visual'>
+                <geometry>
+                    <cylinder>
+                        <radius>0.15</radius>
+                        <length>0.1</length>
+                    </cylinder>
+                </geometry>
+                <material>
+                    <ambient>0.8 0.8 0.8 1</ambient>
+                    <diffuse>0.8 0.8 0.8 1</diffuse>
+                    <specular>0.8 0.8 0.8 1</specular>
+                </material>
+            </visual>
+            <collision name='collision'>
+                <geometry>
+                    <cylinder>
+                        <radius>0.15</radius>
+                        <length>0.1</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+        </link>
+
+        <!--Left joint-->
+        <joint name='joint_L' type='universal'>
+            <parent>base_mobile</parent>
+            <child>wheel_L</child>
+            <axis>
+                <xyz>0 1 0</xyz>
+            </axis>
+            <origin>
+                <xyz>0 0 0</xyz>
+            </origin>
+        </joint>
+
+
+        <!--Right wheel-->
+        <link name='wheel_R'>
+            <pose>-0.1 -0.30 0 1.57075 0 0</pose>
+            <inertial>
+                <mass>20</mass>
+                <inertia>
+                    <ixx>0.145833</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.145833</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.125</izz>
+                </inertia>
+            </inertial>
+            <visual name='visual'>
+                <geometry>
+                    <cylinder>
+                        <radius>0.15</radius>
+                        <length>0.1</length>
+                    </cylinder>
+                </geometry>
+                <material>
+                    <ambient>0.8 0.8 0.8 1</ambient>
+                    <diffuse>0.8 0.8 0.8 1</diffuse>
+                    <specular>0.8 0.8 0.8 1</specular>
+                </material>
+            </visual>
+            <collision name='collision'>
+                <geometry>
+                    <cylinder>
+                        <radius>0.15</radius>
+                        <length>0.1</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+        </link>
+
+        <!--Right joint-->
+        <joint name='joint_R' type='universal'>
+            <parent>base_mobile</parent>
+            <child>wheel_R</child>
+            <axis>
+                <xyz>0 1 0</xyz>
+            </axis>
+            <origin>
+                <xyz>0 0 0</xyz>
+            </origin>
+        </joint>
+
+        <!-- Caster Wheel -->
+        <link name="front_caster">
+            <pose relative_to="base_mobile">0.2 0 -0.1 0 0 0</pose>
+            <visual name='visual'>
+                <geometry>
+                    <sphere>
+                        <radius>0.05</radius>
+                    </sphere>
+                </geometry>
+            </visual>
+            <collision name='collision'>
+                <geometry>
+                    <sphere>
+                        <radius>0.05</radius>
+                    </sphere>
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name='caster_joint' type='fixed'>
+            <parent>base_mobile</parent>
+            <child>front_caster</child>
+        </joint>
+
+        <!-- Plugin to move base -->
+        <plugin filename="libignition-gazebo-diff-drive-system.so" name="ignition::gazebo::systems::DiffDrive">
+            <left_joint>joint_L</left_joint>
+            <right_joint>joint_R</right_joint>
+            <wheel_separation>0.6</wheel_separation>
+            <wheel_radius>0.15</wheel_radius>
+            <odom_publish_frequency>5</odom_publish_frequency>
+            <topic>cmd_vel</topic>
+        </plugin>
+
+    </model>
+</sdf>
+
+        

@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: robot_description
+    relative_path: urdf/ur5_no_ee.urdf
+  srdf:
+    relative_path: config/ur5_rg2.srdf
+  package_settings:
+    author_name: Maxime LERICHE
+    author_email: maxime.leriche@cpe.fr
+    generated_timestamp: 1695106630
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
