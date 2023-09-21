@@ -5,12 +5,12 @@
   <link name="base_link">
     <visual name="base_link_visual">
       <geometry>
-        <mesh filename="package:///meshes/visual/ur5/base.dae"/>
+        <mesh filename="package://meshes/visual/ur5/base.dae"/>
       </geometry>
     </visual>
     <collision name="base_link_collision">
       <geometry>
-        <mesh filename="package:///meshes/collision/ur5/base.stl"/>
+        <mesh filename="package://meshes/collision/ur5/base.stl"/>
       </geometry>
     </collision>
   </link>
@@ -18,12 +18,12 @@
   <link name="shoulder_link">
     <visual name="shoulder_link_visual">
       <geometry>
-        <mesh filename="package:///meshes/visual/ur5/shoulder.dae"/>
+        <mesh filename="package://meshes/visual/ur5/shoulder.dae"/>
       </geometry>
     </visual>
     <collision name="shoulder_link_collision">
       <geometry>
-        <mesh filename="package:///meshes/collision/ur5/shoulder.stl"/>
+        <mesh filename="package://meshes/collision/ur5/shoulder.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -36,12 +36,12 @@
   <link name="upper_arm_link">
     <visual name="upper_arm_link_visual">
       <geometry>
-        <mesh filename="package:///meshes/visual/ur5/upperarm.dae"/>
+        <mesh filename="package://meshes/visual/ur5/upperarm.dae"/>
       </geometry>
     </visual>
     <collision name="upper_arm_link_collision">
       <geometry>
-        <mesh filename="package:///meshes/collision/ur5/upperarm.stl"/>
+        <mesh filename="package://meshes/collision/ur5/upperarm.stl"/>
       </geometry>
     </collision>
   </link>
@@ -49,12 +49,12 @@
   <link name="forearm_link">
     <visual name="forearm_link_visual">
       <geometry>
-        <mesh filename="package:///meshes/visual/ur5/forearm.dae"/>
+        <mesh filename="package://meshes/visual/ur5/forearm.dae"/>
       </geometry>
     </visual>
     <collision name="forearm_link_collision">
       <geometry>
-        <mesh filename="package:///meshes/collision/ur5/forearm.stl"/>
+        <mesh filename="package://meshes/collision/ur5/forearm.stl"/>
       </geometry>
     </collision>
   </link>
@@ -62,12 +62,12 @@
   <link name="wrist_1_link">
     <visual name="wrist_1_link_visual">
       <geometry>
-        <mesh filename="package:///meshes/visual/ur5/wrist1.dae"/>
+        <mesh filename="package://meshes/visual/ur5/wrist1.dae"/>
       </geometry>
     </visual>
     <collision name="wrist_1_link_collision">
       <geometry>
-        <mesh filename="package:///meshes/collision/ur5/wrist1.stl"/>
+        <mesh filename="package://meshes/collision/ur5/wrist1.stl"/>
       </geometry>
     </collision>
   </link>
@@ -75,12 +75,12 @@
   <link name="wrist_2_link">
     <visual name="wrist_2_link_visual">
       <geometry>
-        <mesh filename="package:///meshes/visual/ur5/wrist2.dae"/>
+        <mesh filename="package://meshes/visual/ur5/wrist2.dae"/>
       </geometry>
     </visual>
     <collision name="wrist_2_link_collision">
       <geometry>
-        <mesh filename="package:///meshes/collision/ur5/wrist2.stl"/>
+        <mesh filename="package://meshes/collision/ur5/wrist2.stl"/>
       </geometry>
     </collision>
   </link>
@@ -88,12 +88,12 @@
   <link name="wrist_3_link">
     <visual name="wrist_3_link_visual">
       <geometry>
-        <mesh filename="package:///meshes/visual/ur5/wrist3.dae"/>
+        <mesh filename="package://meshes/visual/ur5/wrist3.dae"/>
       </geometry>
     </visual>
     <collision name="wrist_3_link_collision">
       <geometry>
-        <mesh filename="package:///meshes/collision/ur5/wrist3.stl"/>
+        <mesh filename="package://meshes/collision/ur5/wrist3.stl"/>
       </geometry>
     </collision>
   </link>
