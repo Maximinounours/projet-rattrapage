@@ -70,11 +70,32 @@ def generate_launch_description():
             "-file",
             robot,
             "-z",
-            "0.5",
+            "2",
         ],
     )
     ld.add_action(node_spawn)
 
+    # Start service node for navigation
+    node_nav = Node(
+        package="mobile_robot_maxime",
+        executable="breakdance",
+        output="screen",
+    )
+    ld.add_action(node_nav)
+
+    for i in ("0", "2"):
+        bridge_odom = Node(
+            package="ros_ign_bridge",
+            executable="parameter_bridge",
+            output="log",
+            arguments=[
+                f"/cmd_joint/_{i}"
+                + "@std_msgs/msg/Float64"
+                + "]"
+                + "ignition.msgs.Double",
+            ],
+        )
+        ld.add_action(bridge_odom)
     return ld
 
 
@@ -86,7 +107,7 @@ def generate_declared_arguments() -> List[DeclareLaunchArgument]:
     return [
         DeclareLaunchArgument(
             "robot",
-            default_value="mobile_base",
+            default_value="mobile_arm",
             description="Robot path or filename to spawn. If filename,"
             + "it must be in the directory specified by $IGN_GAZEBO_RESOURCE_PATH",
         ),

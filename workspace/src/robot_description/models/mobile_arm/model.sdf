@@ -20,7 +20,7 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass>50</mass>
+                <mass>500</mass>
                 <inertia>
                     <ixx>0.145833</ixx>
                     <ixy>0</ixy>
