@@ -5,7 +5,6 @@ from launch.actions import (
     DeclareLaunchArgument,
 )
 from launch_ros.actions import Node
-import yaml
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from typing import List
 from launch import LaunchDescription
