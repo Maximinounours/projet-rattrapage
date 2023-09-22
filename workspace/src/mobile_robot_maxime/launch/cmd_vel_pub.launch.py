@@ -16,6 +16,12 @@ PKG_NAME = "mobile_robot_maxime"
 def generate_launch_description():
     ld = LaunchDescription()
 
+    config = os.path.join(
+        get_package_share_directory("mobile_robot_maxime"),
+        "config",
+        "command_vel_example.yaml",
+    )
+
     # Get launch args
     declared_args = generate_declared_arguments()
     robot = LaunchConfiguration("robot")
@@ -59,7 +65,8 @@ def generate_launch_description():
         package="mobile_robot_maxime",
         executable="velocity_pub",
         output="screen",
-        parameters=[{"linear": 1.0, "angular": 0.3}],
+        emulate_tty=True,
+        parameters=[config],
     )
     ld.add_action(node_cmd_vel)
 

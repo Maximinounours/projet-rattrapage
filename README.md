@@ -1,3 +1,5 @@
+Document not really up to date and exhaustive
+
 This readme explains how I applied some of the notions I understand from ROS2.
 
 The idea is to generate my own simulation with my own robot. Make some nodes and other routines to have the robot perform some actions. and more to come
@@ -11,10 +13,16 @@ For now:
 - Bridge to send commands via ROS2 and not Gazebo
 - Publisher to set a default velocity
 - Service to set a specific velocity
+- Demo file
+- Mobile base + arm
+- moveit config but no usage
 
-There are 2 packages:
+There are some packages:
 - (*Python*) **mobile_robot_maxime**: with the simulation and nodes
-- (*CMake*) **custom_srv_maxime**: Custom service, and in the future messages
+- (*CMake*) **custom_srv_maxime**: Custom service and messages
+- (*Python*) **navigation_maxime**: very bad path planning based on inaccurate odometry
+- (*CMake*) **robot_description**: Descriptions of my robots
+- (*CMake*) **ur5_moveit_config**: output of moveit set up assistant on ur5 without end effector
 
 # Versions
 
@@ -22,44 +30,75 @@ There are 2 packages:
 
 **ROS2**: Humble (https://docs.ros.org/en/humble/index.html)
 
-# Basics
+# What can be done
 
-How to setup a workspace and a package + my simulation environment
-
-## Create workspace
+## Start a default world
 
 ```shell
-mkdir workspace/src
-cd workspace/src
+ros2 launch mobile_robot_maxime default.launch.py
 ```
 
-## Create package (Python) + folders
+Possibility to change some arguments: `<world/robot>:=<value>`
+- for `world`, put your own world.sdf file if placed in `mobile_robot_maxime/worlds`, otherwise the path to the .sdf
+- for `robot`, put the robot name if placed in `robot_description/models`, otherwise the path the the description directory containing the `model.sdf`
 
-Create the package and relevant folders
+## Moving the robot with a publisher
 
 ```shell
-ros2 pkg create --build-type ament_python mobile_robot_maxime
-cd ..
-mkdir src/mobile_robot_maxime/launch
-mkdir src/mobile_robot_maxime/worlds
-mkdir src/mobile_robot_maxime/models/robot
+ros2 launch mobile_robot_maxime cmd_vel_pub.launch.py
 ```
 
-## Create .sdf files
+Uses `config/command_vel_example.yaml` as default values
 
-Create the SDF files for the world and the robot
+Linear and angular velocities can be set on the fly with
 
 ```shell
-touch src/mobile_robot_maxime/worlds/empty.sdf
-touch src/mobile_robot_maxime/worlds/simulation.sdf
-touch -p src/mobile_robot_maxime/models/robot/model.config
-touch -p src/mobile_robot_maxime/models/robot/model.sdf
+ros2 param set /publisher_cmd_vel <linear/angular> <value (float)>
 ```
 
-Then write the SDF definitions
+## Moving with a secured communication
 
-### models/robot/
-#### model.config
+Secured communication = default value is no movement, need to continuously send instructions to have the robot moving
+
+```shell
+ros2 launch mobile_robot_maxime secured_cmd.launch.py
+```
+
+- Can send 1 instruction directly via a service
+```shell
+ros2 run mobile_robot_maxime send_cmd_vel <linear x (float)> <angular z (float)>
+```
+
+- Or use keyboard to move:
+```shell
+ros2 run mobile_robot_maxime keyboard
+```
+
+## Use basic navigation
+
+Not accurate at all, odometry very approximative.
+
+```shell
+ros2 launch mobile_robot_maxime nav.launch.py
+```
+
+- Send target coordinates
+```shell
+ros2 run navigation_maxime send_target_pos <X (float or int)> <Y (float or int)>
+```
+## Demo to move arm with individual joint positions
+
+```shell
+ros2 launch mobile_robot_maxime demo.launch.py
+```
+
+# Resources
+
+robot models in robot_description
+
+worlds in mobile_robot_maxime
+
+## mobile_arm/model.config
 
 Model config to give some metadata (not given here)\
 http://sdformat.org/tutorials?tut=spec_world&cat=specification&#models-defined-in-other-files
@@ -68,11 +107,11 @@ http://sdformat.org/tutorials?tut=spec_world&cat=specification&#models-defined-i
 <?xml version="1.0"?>
 <model>
   <version>1.0</version>
-  <sdf version="1.4">robot.sdf</sdf>
+  <sdf version="1.4">model.sdf</sdf>
 </model>
 ```
 
-#### model.sdf
+## mobile_arm/model.sdf
 
 Actual model definition with 2 wheels, a body, and a joint for each wheel attached to the body.
 
@@ -153,6 +192,10 @@ In `package.xml`:
 ```
 
 But it doesn't work, so I give up for now (7 SEP 2023) and in `empty.sdf` put the content of `<model>` from `robot.sdf` instead of `<include>`
+
+## mobile_base
+
+Robot homemade for the mobile base
 
 ## Plugins
 
@@ -321,46 +364,7 @@ All the possible bridge messages are here: https://github.com/gazebosim/ros_gz/t
 
 *Note: this can also be done with embedding directly in the .sdf file, but not explored here*
 
-## Try it
-
-- Start simulation + create bridge
-```shell
-ros2 launch mobile_robot_maxime vanilla.launch.py
-```
-
-- Listen to Gazebo topic side
-```shell
-ign topic -e --topic /cmd_vel
-```
-
-- Send a frame
-```shell
-ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
-```
-
 # Examples with the differential driver
-
-## CLI
-
-- Start simulation + create bridge
-```shell
-ros2 launch mobile_robot_maxime vanilla.launch.py
-```
-
-- Publish something in the bridge in CLI
-```shell
-ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
-```
-
-## Publisher
-
-Example to publish a message to the robot.
-
-Launch file to start the Gazebo simulation, the bridge with ROS2, and the publisher node:
-
-```shell
-ros2 launch mobile_robot_maxime example_publisher.launch.py
-```
 
 ## Node secured_cmd_vel_publisher
 
@@ -369,6 +373,8 @@ ros2 launch mobile_robot_maxime example_publisher.launch.py
 ### Definition
 
 The node publishes a command continuously to the topic `/cmd_vel` which allows to pilot the base (via a bridge when running a Gazebo simulation), with a default value of zero to force a safe state when communication is cut for example, or a specific value coming from a service when the system - or the user - sends a velocity command.
+
+The node also listens to `key_pressed` to move the robot around depending on the key pressed.
 
 ### Interface
 
@@ -419,18 +425,6 @@ Usage in `secured_node_usr.launch.py`
 
 ![Node in system](./fig/cmd_vel_usr.drawio.png)
 
-### How to use it
-
-Launch file to start the Gazebo simulation, the bridge with ROS2, and the node:
-```shell
-ros2 launch mobile_robot_maxime secured_node_usr.launch.py
-```
-
-Send a velocity command:
-```shell
-ros2 run mobile_robot_maxime send_cmd_vel linear_x angular_z
-```
-
 # Robot navigation from A to B
 
 The topic `/model/robot/odometry` provides the position and orientation of the robot (approximatively).
@@ -441,15 +435,8 @@ In practice the thresholds are not zero but 0.1.
 Cannot work, odometry on orientation is terrible and introduces $\pi/2$ error in the first $2\pi$ rotation...\
 Position is just as wrong...
 
-```shell
-ros2 launch navigation_maxime test.launch.py
-```
-```shell
-ros2 run navigation_maxime compute_nav
-```
-```shell
-ros2 run navigation_maxime send_target_pos 2 2
-```
+This is done via `compute_nav.py` in `navigation_maxime` package
+
 ![Diagram target pos](./fig/target_pos.png)
 
 I guess nav2 can do the exact same thing but with the sensors data.
@@ -480,19 +467,6 @@ Now some nodes are launched by the demo.maunch.py file:
 - JointTrajectoryController?
 - Launch file very unclear, and absolutely no information on what exactly is going on...
 
-## Naive example
-
-Example node to move the arm in a random position every 2s, may end up upside down.
-
-```shell
-ros2 launch mobile_robot_maxime with_arm_gazebo.launch.py
-ros2 run mobile_robot_maxime breakdance
-```
-
-![General idea to control UR5](./fig/cmd_joint.drawio.png)
-
-The top node sends random values to the joint controllers.
-
 ## MoveIt problems
 
 Still exploring MoveIt to use it as ros node.\
@@ -508,21 +482,12 @@ Found a URDF + SDF descriptions of the UR5: https://github.com/AndrejOrsula/ur5_
 The MoveIt Wizard starts, sometimes crashes in the middle, but it creates the configuration files and package
 This tutorial applied to the description: https://moveit.picknik.ai/main/doc/examples/setup_assistant/setup_assistant_tutorial.html?highlight=setup
 
+Setup assistant seems to work, `demo.launch.py` in `ur5_moveit_config` plans and executes movements.
+
 ### Demo file
 
 Many errors, process crashing, etc. And the robot does not load.\
 For some reasons we need to add `LC_NUMERIC=en_US.UTF-8` before launching to have the robot loaded (https://github.com/ros-planning/moveit2/issues/1049)
-```shell
-LC_NUMERIC=en_US.UTF-8 ros2 launch moveit_ur_with_hand demo.launch.py
-```
-### MoveIt integration in a node
-
-Run demo file + the node in question (`test_moveit_plan/src/test_moveit.cpp`)
-
-![MoveIt integration problem](./fig/problems/moveit-integration-1.png)
-
-My guess is if this works, I can command the arm to place the ee at the spatial position I want communicating with that node.\
-Transfer to Gazebo sim? No idea
 
 ### MoveIt python
 
@@ -532,6 +497,8 @@ The package is not installed (https://github.com/ros-planning/moveit2/tree/main/
 
 Gazebo not starting the simulation\
 ![Gazebo broken](./fig/problems/Gazebo-not-working.png)
+
+Solution: process still running in background (ign-server)
 
 # Launch files
 
@@ -554,6 +521,7 @@ with open(config_path, "r") as file:
 
 Could use .yaml in `/config` to pass default arguments
 - Give the robot name and position in .yaml
+- Give some nodes params
 
 ## default.launch.py
 
@@ -568,4 +536,3 @@ Could add parameters to spawn the robot at a given position
 ## cmd_vel_pub.launch.py
 
 Calls `default.launch`, defines which robot to spawn (could add robot model path as parameter), and starts basic node to have the robot run in circle (could add the values as parameters as well)
-

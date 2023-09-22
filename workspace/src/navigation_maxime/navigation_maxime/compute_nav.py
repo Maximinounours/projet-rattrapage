@@ -43,7 +43,6 @@ class ComputeNav(Node):
         self.usr_command = False
         self.usr_target_pos = Point()
         self.current_pos = Pose()
-        self.prev_pos = Pose()
         self.locked_target = False
 
         # Subscribed to Gazebo topic odometry to know current position
@@ -76,6 +75,7 @@ class ComputeNav(Node):
             )
             if target_distance < MIN_DISTANCE:
                 self.usr_command = False
+                self.locked_target = False
                 self.get_logger().info(f"POS REACHED")
 
             else:
@@ -86,7 +86,8 @@ class ComputeNav(Node):
 
                 if np.abs(diff_angle) > MIN_ANGLE and not self.locked_target:
                     diff_angle = diff_angle / 3.14
-                    msg.angular.z = cmd_angle(diff_angle)
+                    msg.angular.z = cmd_angle(2 * diff_angle)
+
                 else:
                     self.locked_target = True
                     msg.linear.x = cmd_angle(np.min([target_distance, 0.4]))
@@ -112,13 +113,14 @@ class ComputeNav(Node):
     def odom_sub_callback(self, msg):
         self.current_pos = msg.pose.pose
         roll, pitch, yaw = euler_from_quaternion(self.current_pos.orientation)
-        self.get_logger().info(
-            f"X: {self.current_pos.position.x:.3f}"
-            + f" Y: {self.current_pos.position.y:.3f}"
-            + f" Z: {self.current_pos.position.z:.3f}"
-            + f" RPY: {roll:.3f}, {pitch:.3f}, {yaw:.3f}"
-        )
+
         if self.usr_command:
+            self.get_logger().info(
+                f"X: {self.current_pos.position.x:.3f}"
+                + f" Y: {self.current_pos.position.y:.3f}"
+                + f" Z: {self.current_pos.position.z:.3f}"
+                + f" RPY: {roll:.3f}, {pitch:.3f}, {yaw:.3f}"
+            )
             target_distance, target_rad = compute_target(
                 self.usr_target_pos, self.current_pos
             )
@@ -126,7 +128,6 @@ class ComputeNav(Node):
             self.get_logger().info(
                 f"DISTANCE: {target_distance:.3f} ANGLE: {dist_angle:.3f}"
             )
-            self.prev_pos = self.current_pos
 
     def cmd_vel_send_req(self, a, b):
         # Fill request content

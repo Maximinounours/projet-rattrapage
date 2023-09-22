@@ -12,14 +12,21 @@ class EndEffectorPublisher(Node):
         self.publisher_0 = self.create_publisher(Float64, "cmd_joint/_0", 10)
         self.publisher_2 = self.create_publisher(Float64, "cmd_joint/_2", 10)
 
+        self.incr = 0.2
         timer_period = 0.2  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.data = Float64(data=0.0)
 
     def timer_callback(self):
-        self.data.data += 0.1
-        self.publisher_0.publish(self.data)
-        self.publisher_2.publish(Float64(data=0.5))
+        self.data.data += self.incr
+        if self.data.data > np.pi and self.incr > 0:
+            self.data.data = np.pi
+            self.incr = -self.incr
+        elif self.data.data < -np.pi and self.incr < 0:
+            self.data.data = -np.pi
+            self.incr = -self.incr
+        self.publisher_2.publish(self.data)
+        self.publisher_0.publish(Float64(data=0.5))
 
 
 def main(args=None):

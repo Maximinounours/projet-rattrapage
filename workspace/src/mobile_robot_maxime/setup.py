@@ -13,6 +13,10 @@ setup(
         ("share/ament_index/resource_index/packages", ["resource/" + package_name]),
         ("share/" + package_name, ["package.xml"]),
         (
+            os.path.join("share", package_name, "config"),
+            glob(os.path.join("config", "*.[yaml]*")),
+        ),
+        (
             os.path.join("share", package_name, "launch"),
             glob(os.path.join("launch", "*launch.[pxy][yma]*")),
         ),
@@ -34,6 +38,7 @@ setup(
             "secured_vel = mobile_robot_maxime.secured_cmd_vel_pub:main",
             "send_cmd_vel = mobile_robot_maxime.client_cmd_vel:main",
             "breakdance = mobile_robot_maxime.test_cmd_ee:main",
+            "keyboard = mobile_robot_maxime.keyboard:main",
         ],
     },
 )

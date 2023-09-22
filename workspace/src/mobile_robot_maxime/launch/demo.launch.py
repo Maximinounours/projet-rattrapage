@@ -70,7 +70,7 @@ def generate_launch_description():
             "-file",
             robot,
             "-z",
-            "2",
+            "0.5",
         ],
     )
     ld.add_action(node_spawn)
@@ -96,6 +96,7 @@ def generate_launch_description():
             ],
         )
         ld.add_action(bridge_odom)
+
     return ld
 
 
